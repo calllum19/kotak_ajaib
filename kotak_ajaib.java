@@ -6,6 +6,7 @@ public class kotak_ajaib {
   static boolean complete = false;
 // hi cal
 // aku kerjain yah, aku tidur dulu
+//cal ganteng
   public static void printHeaders() {
     System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
     System.out.println("\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,");
