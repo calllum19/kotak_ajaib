@@ -1,5 +1,9 @@
+import java.util.*;
+
 public class kotak_ajaib {
+  static Scanner input = new Scanner(System.in);
   static int[][] box = new int[3][3];
+  static boolean complete = false;
 
   public static void printHeaders() {
     System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
@@ -12,7 +16,7 @@ public class kotak_ajaib {
     System.out.printf("%17s%9s%9s\n", "Kolom 1", "Kolom 2", "Kolom 3");
     System.out.printf("%34s\n", "+-------+-------+-------+");
     for (int i = 0; i < box.length; i++) {
-      System.out.printf(" Baris %d |", i);
+      System.out.printf(" Baris %d |", i + 1);
       for (int j = 0; j < box[0].length; j++) {
         if (box[i][j] != 0) {
           System.out.printf("%4d%4s", box[i][j], "|");
@@ -24,9 +28,84 @@ public class kotak_ajaib {
     }
   }
 
-  public static void main(String[] args) {
-    boolean complete = false;
-    printHeaders();
-    printGrid();
+  public static void takeInput() {
+    int amount = 0;
+    System.out.print("Masukkan baris (1-3) : ");
+    int baris = input.nextInt();
+    input.nextLine();
+    if (baris < 1 || baris > 3) {
+      System.out.print("Baris tidak valid! Tekan Enter untuk lanjut...");
+      input.nextLine();
+      return;
+    }
+    System.out.print("Masukkan kolom (1-3) : ");
+    int kolom = input.nextInt();
+    input.nextLine();
+    if (kolom < 1 || kolom > 3) {
+      System.out.print("Kolom tidak valid! Tekan Enter untuk lanjut...");
+      input.nextLine();
+      return;
+    }
+    System.out.print("Masukkan angka (1-9) : ");
+    int angka = input.nextInt();
+    input.nextLine();
+    if (angka < 1 || angka > 9) {
+      System.out.print("Angka harus 1-9! Tekan Enter untuk lanjut...");
+      input.nextLine();
+      return;
+    }
+    for (int i = 0; i < box.length; i++) {
+      for (int j = 0; j < box[0].length; j++) {
+        if (box[i][j] == angka) {
+          box[i][j] = 0;
+        } else if (box[i][j] != 0) {
+          amount++;
+        }
+      }
+    }
+    box[baris - 1][kolom - 1] = angka;
+    if (amount == 8) {
+      complete = true;
+    }
   }
+
+  public static void check() {
+    int[] sum = new int[8];
+    // hori
+    for (int i = 0; i < box.length; i++) {
+      for (int j = 0; j < box[0].length; j++) {
+        sum[i] += box[i][j];
+      }
+    }
+
+    // vert
+    for (int j = 0; j < box.length; j++) {
+      for (int i = 0; i < box[0].length; i++) {
+        sum[j + box.length] += box[i][j];
+      }
+    }
+
+    // diagonal \
+    for (int i = 0, j = 0; i < box.length && j < box.length; i++, j++) {
+      sum[6] += box[i][j];
+    }
+
+    // diagonal /
+    for (int i = 2, j = 0; i >= 0 && j < box.length; i--, j++) {
+      sum[7] += box[i][j];
+    }
+
+    System.out.println("Hasil pengecekan: ");
+  }
+
+  public static void main(String[] args) {
+    do {
+      printHeaders();
+      printGrid();
+      takeInput();
+    } while (!complete);
+    check();
+  }
+  // clear console
+  // loop game
 }
