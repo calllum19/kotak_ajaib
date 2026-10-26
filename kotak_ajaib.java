@@ -8,6 +8,7 @@ public class kotak_ajaib {
   }
 
   public static void printGrid() {
+    // hi
     System.out.printf("%17s%9s%9s\n", "Kolom 1", "Kolom 2", "Kolom 3");
     System.out.printf("%34s\n", "+-------+-------+-------+");
     for (int i = 0; i < box.length; i++) {
