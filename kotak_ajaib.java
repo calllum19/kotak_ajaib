@@ -4,7 +4,8 @@ public class kotak_ajaib {
   static Scanner input = new Scanner(System.in);
   static int[][] box = new int[3][3];
   static boolean complete = false;
-
+// hi cal
+// aku kerjain yah, aku tidur dulu
   public static void printHeaders() {
     System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
     System.out.println("\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,");
