@@ -4,9 +4,10 @@ public class kotak_ajaib {
   static Scanner input = new Scanner(System.in);
   static int[][] box = new int[3][3];
   static boolean complete = false;
-// hi cal
-// aku kerjain yah, aku tidur dulu
-//cal ganteng
+
+  // hi cal
+  // aku kerjain yah, aku tidur dulu
+  // cal ganteng
   public static void printHeaders() {
     System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
     System.out.println("\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,");
@@ -98,6 +99,29 @@ public class kotak_ajaib {
     }
 
     System.out.println("Hasil pengecekan: ");
+    String kondisiSesuai = "SALAH";
+    int sudahBenar = 0;
+    // Baris
+    for (int i = 0; i < 3; i++) {
+      if (sum[i] == 15) {
+        kondisiSesuai = "OK";
+        sudahBenar++;
+      }
+      System.out.printf("  Baris %d%4s %2d %s", i + 1, "=", sum[i], kondisiSesuai);
+    }
+    // Kolom
+
+    // Diagonal
+
+    String evaluasiAkhir;
+    // "SELAMAT! Anda berhasil membuat KOTAK AJAIB!" atau "Belum berhasil, susunan
+    // ini bukan kotak ajaib."
+
+    System.out.print("Main lagi? (y/n): ");
+    if (input.next().charAt(0) == 'y') {
+      complete = false;
+      // clear the grid
+    }
   }
 
   public static void main(String[] args) {
@@ -105,8 +129,10 @@ public class kotak_ajaib {
       printHeaders();
       printGrid();
       takeInput();
+      if (complete) {
+        check();
+      }
     } while (!complete);
-    check();
   }
   // clear console
   // loop game
