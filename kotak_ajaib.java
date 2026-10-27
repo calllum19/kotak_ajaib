@@ -1,5 +1,7 @@
 import java.util.*;
 
+// Tolong diubah jadi OOP
+
 public class kotak_ajaib {
   static Scanner input = new Scanner(System.in);
   static int[][] box = new int[3][3];
