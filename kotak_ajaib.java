@@ -110,10 +110,26 @@ public class kotak_ajaib {
         sudahBenar++;
       }
       System.out.printf("  Baris %d%4s %2d %s", i + 1, "=", sum[i], kondisiSesuai);
+      kondisiSesuai = "SALAH";
     }
     // Kolom
-
+    for (int i = 3; i < 6; i++) {
+      if (sum[i] == 15) {
+        kondisiSesuai = "OK";
+        sudahBenar++;
+      }
+      System.out.printf("  Kolom %d%4s %2d %s", i + 1, "=", sum[i], kondisiSesuai);
+      kondisiSesuai = "SALAH";
+    }
     // Diagonal
+    for (int i = 6; i < 8; i++) {
+      if (sum[i] == 15) {
+        kondisiSesuai = "OK";
+        sudahBenar++;
+      }
+      System.out.printf("  Diagonal /%4s %2d %s", "=", sum[i], kondisiSesuai);
+      kondisiSesuai = "SALAH";
+    }
 
     String evaluasiAkhir;
     // "SELAMAT! Anda berhasil membuat KOTAK AJAIB!" atau "Belum berhasil, susunan
