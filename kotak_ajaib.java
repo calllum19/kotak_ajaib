@@ -109,7 +109,7 @@ public class kotak_ajaib {
         kondisiSesuai = "OK";
         sudahBenar++;
       }
-      System.out.printf("  Baris %d%4s %2d %s", i + 1, "=", sum[i], kondisiSesuai);
+      System.out.printf("  Baris %d%6s %2d %s\n", i + 1, "=", sum[i], kondisiSesuai);
       kondisiSesuai = "SALAH";
     }
     // Kolom
@@ -118,27 +118,37 @@ public class kotak_ajaib {
         kondisiSesuai = "OK";
         sudahBenar++;
       }
-      System.out.printf("  Kolom %d%4s %2d %s", i + 1, "=", sum[i], kondisiSesuai);
+      System.out.printf("  Kolom %d%6s %2d %s\n", i + 1, "=", sum[i], kondisiSesuai);
       kondisiSesuai = "SALAH";
     }
     // Diagonal
-    for (int i = 6; i < 8; i++) {
-      if (sum[i] == 15) {
-        kondisiSesuai = "OK";
-        sudahBenar++;
-      }
-      System.out.printf("  Diagonal /%4s %2d %s", "=", sum[i], kondisiSesuai);
-      kondisiSesuai = "SALAH";
+    if (sum[6] == 15) {
+      kondisiSesuai = "OK";
+      sudahBenar++;
     }
+    System.out.printf("  Diagonal \\%3s %2d %s\n", "=", sum[6], kondisiSesuai);
+    kondisiSesuai = "SALAH";
+    if (sum[7] == 15) {
+      kondisiSesuai = "OK";
+      sudahBenar++;
+    }
+    System.out.printf("  Diagonal /%3s %2d %s\n", "=", sum[7], kondisiSesuai);
 
     String evaluasiAkhir;
-    // "SELAMAT! Anda berhasil membuat KOTAK AJAIB!" atau "Belum berhasil, susunan
-    // ini bukan kotak ajaib."
+    if (sudahBenar == 15) {
+      evaluasiAkhir = "SELAMAT! Anda berhasil membuat KOTAK AJAIB!";
+    } else {
+      evaluasiAkhir = "Belum berhasil, susunan ini bukan kotak ajaib.";
+    }
 
     System.out.print("Main lagi? (y/n): ");
     if (input.next().charAt(0) == 'y') {
       complete = false;
-      // clear the grid
+      for (int i = 0; i < box.length; i++) {
+        for (int j = 0; j < box[0].length; j++) {
+          box[i][j] = 0;
+        }
+      }
     }
   }
 
