@@ -11,6 +11,9 @@ public class kotak_ajaib {
   // aku kerjain yah, aku tidur dulu
   // cal ganteng
   public static void printHeaders() {
+    for (int i = 0; i < 100; i++) {
+      System.out.println();
+    }
     System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
     System.out.println("\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,");
     System.out.println("kolom, dan diagonal berjumlah 15.\n");
@@ -158,6 +161,8 @@ public class kotak_ajaib {
       printGrid();
       takeInput();
       if (complete) {
+        printHeaders();
+        printGrid();
         check();
       }
     } while (!complete);
