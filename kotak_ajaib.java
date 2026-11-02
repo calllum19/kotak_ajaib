@@ -136,12 +136,12 @@ public class kotak_ajaib {
     System.out.printf("  Diagonal /%3s %2d %s\n", "=", sum[7], kondisiSesuai);
 
     String evaluasiAkhir;
-    if (sudahBenar == 15) {
+    if (sudahBenar == 8) {
       evaluasiAkhir = "SELAMAT! Anda berhasil membuat KOTAK AJAIB!";
     } else {
       evaluasiAkhir = "Belum berhasil, susunan ini bukan kotak ajaib.";
     }
-
+    System.out.println(evaluasiAkhir);
     System.out.print("Main lagi? (y/n): ");
     if (input.next().charAt(0) == 'y') {
       complete = false;
