@@ -8,6 +8,7 @@ public class kotak_ajaib {
   // hi cal
   // aku kerjain yah, aku tidur dulu
   // cal ganteng
+  // asek
   public static void printHeaders() {
     for (int i = 0; i < 100; i++) {
       System.out.println();
