@@ -1,6 +1,15 @@
 public class KotakAjaib extends GridGame {
+    public KotakAjaib() {
+        headers = new String[] {
+                "=== PERMAINAN KOTAK AJAIB 3x3 ===",
+                "\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,",
+                "kolom, dan diagonal berjumlah 15.\n"
+        };
+    }
+
     @Override
     protected void processMove(int baris, int kolom) {
+        int angka;
         while (true) {
             System.out.print("Masukkan angka (1-9) : ");
             if (!sc.hasNextInt()) {
@@ -8,7 +17,7 @@ public class KotakAjaib extends GridGame {
                 sc.nextLine();
                 continue;
             }
-            int angka = sc.nextInt();
+            angka = sc.nextInt();
             if (angka < 1 || angka > 9) {
                 System.out.print("Angka harus 1-9! Tekan Enter untuk lanjut...");
                 sc.nextLine();
@@ -16,16 +25,21 @@ public class KotakAjaib extends GridGame {
             }
             sc.nextLine();
 
+            int amount = 0;
+            for (int i = 0; i < box.length; i++) {
+                for (int j = 0; j < box[0].length; j++) {
+                    if (box[i][j] == angka) {
+                        box[i][j] = 0;
+                    } else if (box[i][j] != 0) {
+                        amount++;
+                    }
+                }
+            }
             box[baris][kolom] = angka;
+            if (amount == 8)
+                complete = true;
             break;
         }
-        for (int[] i : box) {
-            for (int j : i) {
-                if (j == 0)
-                    return;
-            }
-        }
-        complete = true;
     }
 
     @Override

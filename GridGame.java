@@ -72,7 +72,7 @@ public abstract class GridGame {
             }
             sc.nextLine();
 
-            return new int[] { baris, kolom };
+            return new int[] { baris - 1, kolom - 1 };
         }
     }
 
