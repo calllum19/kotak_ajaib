@@ -1,22 +1,25 @@
 import java.util.Scanner;
 
-abstract class gridGame {
-  Scanner sc = new Scanner(System.in);
-  int[][] box = new int[3][3];
-  boolean complete = false;
+public class kotak_ajaib {
+  static Scanner input = new Scanner(System.in);
+  static int[][] box = new int[3][3];
+  static boolean complete = false;
 
-  String[] headers;
-
-  public void printHeaders() {
+  // hi cal
+  // aku kerjain yah, aku tidur dulu
+  // cal ganteng
+  // asek
+  public static void printHeaders() {
     for (int i = 0; i < 100; i++) {
       System.out.println();
     }
-    for (String i : headers) {
-      System.out.println(i);
-    }
+    System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
+    System.out.println("\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,");
+    System.out.println("kolom, dan diagonal berjumlah 15.\n");
   }
 
-  public void printGrid() {
+  public static void printGrid() {
+    // hi
     System.out.printf("%17s%9s%9s\n", "Kolom 1", "Kolom 2", "Kolom 3");
     System.out.printf("%34s\n", "+-------+-------+-------+");
     for (int i = 0; i < box.length; i++) {
@@ -31,62 +34,6 @@ abstract class gridGame {
       System.out.printf("\n%34s\n", "+-------+-------+-------+");
     }
   }
-
-  public void takeInput() {
-    int[] coords = readCoordinates();
-    processMove(coords[0], coords[1]);
-  }
-
-  protected int[] readCoordinates() {
-    int maxBaris = box.length;
-    int maxKolom = box[0].length;
-
-    while (true) {
-      System.out.print("Masukkan baris (1-3): ");
-      if (!sc.hasNextInt()) {
-        System.out.println("Input harus merupakan angka!");
-        sc.nextLine();
-        continue;
-      }
-      int baris = sc.nextInt();
-
-      if (baris < 1 || baris > maxBaris) {
-        System.out.println("Indeks yang dimasukkan tidak valid!");
-        sc.nextLine();
-        continue;
-      }
-
-      System.out.print("Masukkan kolom (1-3): ");
-      if (!sc.hasNextInt()) {
-        System.out.println("Input harus merupakan angka!");
-        sc.nextLine();
-        continue;
-      }
-      int kolom = sc.nextInt();
-
-      if (kolom < 1 || kolom > maxKolom) {
-        System.out.println("Indeks yang dimasukkan tidak valid!");
-        sc.nextLine();
-        continue;
-      }
-
-      return new int[] { baris, kolom };
-    }
-  }
-
-  protected abstract void processMove(int baris, int kolom);
-}
-
-/*
- * System.out.println("=== PERMAINAN KOTAK AJAIB 3x3 ===");
- * System.out.println("\nIsi angka 1-9 (tidak boleh sama) agar setiap baris,");
- * System.out.println("kolom, dan diagonal berjumlah 15.\n");
- */
-
-public class kotak_ajaib {
-  static Scanner input = new Scanner(System.in);
-  static int[][] box = new int[3][3];
-  static boolean complete = false;
 
   public static void takeInput() {
     int amount = 0;
